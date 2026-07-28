@@ -1,0 +1,16 @@
+{
+  "name": "moldavite-skills",
+  "description": "Agent Skills for Moldavite notes, Forges, MCP, daily notes, and migration",
+  "owner": {
+    "name": "Mauro Pereira",
+    "url": "https://github.com/mauropereiira"
+  },
+  "plugins": [
+    {
+      "name": "moldavite",
+      "source": "./",
+      "description": "Agent Skills for Moldavite notes and Forges",
+      "version": "1.0.0"
+    }
+  ]
+}

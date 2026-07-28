@@ -1,0 +1,23 @@
+{
+  "name": "moldavite-skills",
+  "version": "1.0.0",
+  "description": "Agent Skills for working with Moldavite Forges and notes",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauropereiira/moldavite-skills.git"
+  },
+  "homepage": "https://mauropereiira.github.io/moldavite-skills/",
+  "scripts": {
+    "format:check": "prettier --check README.md package.json scripts/validate.mjs docs/index.html docs/styles.css docs/site.js",
+    "validate": "npm run validate:skills && npm run validate:site && npm run format:check",
+    "validate:site": "html-validate docs/index.html && node --check docs/site.js",
+    "validate:skills": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "html-validate": "^11.4.0",
+    "prettier": "^3.7.4"
+  },
+  "license": "MIT"
+}

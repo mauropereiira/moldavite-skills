@@ -1,0 +1,19 @@
+{
+  "name": "moldavite",
+  "version": "1.0.0",
+  "description": "Create and manage Moldavite notes using compatible Markdown, Forge conventions, daily notes, migration workflows, and the local MCP server.",
+  "author": {
+    "name": "Mauro Pereira",
+    "url": "https://github.com/mauropereiira"
+  },
+  "repository": "https://github.com/mauropereiira/moldavite-skills",
+  "license": "MIT",
+  "keywords": [
+    "moldavite",
+    "markdown",
+    "mcp",
+    "pkm",
+    "notes",
+    "wiki-links"
+  ]
+}

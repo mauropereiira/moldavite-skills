@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="24%" r="75%">
+      <stop stop-color="#30452d" />
+      <stop offset=".54" stop-color="#101610" />
+      <stop offset="1" stop-color="#07090a" />
+    </radialGradient>
+    <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b7d6a0" />
+      <stop offset="1" stop-color="#4e7346" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#glow)" />
+  <g transform="translate(0 285)">
+    <circle cx="1005" cy="315" r="140" fill="#9dc183" opacity=".08" filter="url(#shadow)" />
+    <g transform="translate(910 200)">
+      <path d="M82 0 164 53l-24 132-58 39-58-39L0 53 82 0Z" fill="#9dc183" opacity=".08" stroke="url(#gem)" stroke-width="3" />
+      <path d="m0 53 82 44 82-44M24 185l58-88 58 88M82 0v97" fill="none" stroke="#9dc183" stroke-width="2" opacity=".7" />
+      <path d="M-24 80v34m-17-17h34M188 80v34m-17-17h34" fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" />
+    </g>
+    <text x="88" y="82" fill="#9dc183" font-family="monospace" font-size="17" letter-spacing="5">SKILL.MD X 5</text>
+    <text x="84" y="210" fill="#e8e6df" font-family="Georgia, serif" font-size="78">Teach your agent</text>
+    <text x="84" y="298" fill="#e8e6df" font-family="Georgia, serif" font-size="78">how your Forge works.</text>
+    <text x="90" y="390" fill="#aaa9a3" font-family="Arial, sans-serif" font-size="25">Portable Agent Skills for Moldavite Markdown, Forges, MCP,</text>
+    <text x="90" y="428" fill="#aaa9a3" font-family="Arial, sans-serif" font-size="25">daily notes, and migration.</text>
+    <text x="90" y="535" fill="#c9a227" font-family="monospace" font-size="18">mauropereiira/moldavite-skills</text>
+  </g>
+</svg>

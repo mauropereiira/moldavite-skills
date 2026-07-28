@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moldavite Skills - Teach your agent how your Forge works</title>
+    <meta
+      name="description"
+      content="Portable Agent Skills for Moldavite Markdown, Forges, MCP, daily notes, backups, and Obsidian migration."
+    />
+    <meta name="theme-color" content="#07090a" />
+    <meta property="og:title" content="Moldavite Skills" />
+    <meta
+      property="og:description"
+      content="Teach your agent how your Forge works."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mauropereiira.github.io/moldavite-skills/"
+    />
+    <meta
+      property="og:image"
+      content="https://mauropereiira.github.io/moldavite-skills/og-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://mauropereiira.github.io/moldavite-skills/"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css?v=1.0.0" />
+    <script>
+      document.documentElement.classList.add("has-js");
+    </script>
+    <script src="site.js?v=1.0.0" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="nav-inner liquid-glass">
+        <div class="brand-wrap">
+          <a class="brand" href="#top" aria-label="Moldavite Skills home">
+            <img src="favicon.svg" alt="" width="28" height="28" />
+            <span>Moldavite <em>Skills</em></span>
+          </a>
+          <span class="version-badge">v1.0</span>
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+          <a href="#skills">Skills</a>
+          <a href="#install">Install</a>
+          <a href="#mcp">MCP</a>
+          <a href="https://github.com/mauropereiira/Moldavite">Moldavite</a>
+          <a
+            class="nav-cta liquid-glass"
+            href="https://github.com/mauropereiira/moldavite-skills"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow liquid-glass">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Agent Skills spec &middot; five focused skills
+          </span>
+          <h1 id="hero-title">
+            Teach your agent how your <em>Forge</em> works.
+          </h1>
+          <p class="hero-lede">
+            Moldavite keeps notes simple. These portable skills give AI tools
+            the missing map: syntax, paths, permissions, daily notes, and safe
+            migration.
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#install">
+              Install the skills
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a
+              class="button-secondary liquid-glass"
+              href="https://github.com/mauropereiira/moldavite-skills"
+            >
+              View source
+            </a>
+          </div>
+          <p class="platform-note">
+            Claude Code &middot; Codex &middot; OpenCode &middot; Agent Skills
+            compatible
+          </p>
+        </div>
+
+        <div
+          class="route-map liquid-glass"
+          role="group"
+          aria-label="Five skills route agent work safely"
+        >
+          <div class="route-map-bar">
+            <span>agent.route</span>
+            <span class="route-status"><i aria-hidden="true"></i> ready</span>
+          </div>
+          <div class="route-canvas">
+            <svg
+              class="route-lines"
+              viewBox="0 0 600 520"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M300 260 120 110" />
+              <path d="M300 260 480 110" />
+              <path d="M300 260 86 346" />
+              <path d="M300 260 300 448" />
+              <path d="M300 260 514 346" />
+              <circle cx="300" cy="260" r="124" />
+              <circle class="route-pulse pulse-one" cx="300" cy="260" r="5" />
+              <circle class="route-pulse pulse-two" cx="300" cy="260" r="5" />
+              <circle class="route-pulse pulse-three" cx="300" cy="260" r="5" />
+            </svg>
+
+            <div class="route-core">
+              <span class="core-mark" aria-hidden="true">[[ ]]</span>
+              <strong>Moldavite</strong>
+              <small>Forge context</small>
+            </div>
+
+            <div class="route-node node-markdown">
+              <span>01</span>
+              <strong>Markdown</strong>
+              <small>syntax + links</small>
+            </div>
+            <div class="route-node node-forges">
+              <span>02</span>
+              <strong>Forges</strong>
+              <small>paths + locks</small>
+            </div>
+            <div class="route-node node-mcp">
+              <span>03</span>
+              <strong>MCP</strong>
+              <small>seven real tools</small>
+            </div>
+            <div class="route-node node-daily">
+              <span>04</span>
+              <strong>Daily</strong>
+              <small>dates + templates</small>
+            </div>
+            <div class="route-node node-portability">
+              <span>05</span>
+              <strong>Portability</strong>
+              <small>backup + import</small>
+            </div>
+          </div>
+          <div class="route-prompt">
+            <span class="prompt-mark">&gt;</span>
+            <span>Append today's release note and link the project.</span>
+            <span class="route-match">daily-notes</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Project principles">
+        <ul class="trust-inner reveal-group">
+          <li class="trust-item">
+            <span class="trust-number">01</span>
+            <strong>Actual behavior</strong>
+            Every instruction maps to a shipped Moldavite capability.
+          </li>
+          <li class="trust-item">
+            <span class="trust-number">02</span>
+            <strong>Permission aware</strong>
+            Read by default. Write only through the switch you control.
+          </li>
+          <li class="trust-item">
+            <span class="trust-number">03</span>
+            <strong>Portable standard</strong>
+            One skill pack, multiple compatible coding agents.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="container-wide">
+          <div class="section-heading reveal">
+            <span class="section-kicker">skills/*/SKILL.md</span>
+            <h2 class="section-title" id="skills-title">
+              Five maps. No invented <em>territory.</em>
+            </h2>
+            <p class="section-sub">
+              Each skill owns one clear job. Agents load only the instructions
+              relevant to the work in front of them.
+            </p>
+          </div>
+
+          <div class="skill-grid reveal-group">
+            <a
+              class="skill-card liquid-glass skill-card-wide"
+              href="https://github.com/mauropereiira/moldavite-skills/tree/main/skills/moldavite-markdown"
+            >
+              <span class="skill-index">01 / MARKDOWN</span>
+              <span class="skill-glyph" aria-hidden="true">[[ ]]</span>
+              <h3>Write notes that survive the editor.</h3>
+              <p>
+                Conservative Markdown, preserved YAML, note colors, wiki-link
+                order, tags, and the Obsidian syntax Moldavite intentionally
+                does not support.
+              </p>
+              <span class="skill-link"
+                >Open skill <span aria-hidden="true">&rarr;</span></span
+              >
+            </a>
+
+            <a
+              class="skill-card liquid-glass"
+              href="https://github.com/mauropereiira/moldavite-skills/tree/main/skills/moldavite-forges"
+            >
+              <span class="skill-index">02 / FORGES</span>
+              <span class="skill-glyph" aria-hidden="true">~/</span>
+              <h3>Know where every note belongs.</h3>
+              <p>
+                Forge layout, locked-note boundaries, nested paths, direct
+                edits, and refresh behavior.
+              </p>
+              <span class="skill-link"
+                >Open skill <span aria-hidden="true">&rarr;</span></span
+              >
+            </a>
+
+            <a
+              class="skill-card liquid-glass"
+              href="https://github.com/mauropereiira/moldavite-skills/tree/main/skills/moldavite-mcp"
+            >
+              <span class="skill-index">03 / MCP</span>
+              <span class="skill-glyph" aria-hidden="true">::</span>
+              <h3>Use the seven tools that exist.</h3>
+              <p>
+                Exact arguments, search modes, write gates, full-file
+                replacement, and safe retries.
+              </p>
+              <span class="skill-link"
+                >Open skill <span aria-hidden="true">&rarr;</span></span
+              >
+            </a>
+
+            <a
+              class="skill-card liquid-glass"
+              href="https://github.com/mauropereiira/moldavite-skills/tree/main/skills/moldavite-daily-notes"
+            >
+              <span class="skill-index">04 / DAILY</span>
+              <span class="skill-glyph" aria-hidden="true">W31</span>
+              <h3>Journal without guessing the date.</h3>
+              <p>
+                Local daily dates, ISO week years, deduplication checks, and
+                supported template tokens.
+              </p>
+              <span class="skill-link"
+                >Open skill <span aria-hidden="true">&rarr;</span></span
+              >
+            </a>
+
+            <a
+              class="skill-card liquid-glass skill-card-wide"
+              href="https://github.com/mauropereiira/moldavite-skills/tree/main/skills/moldavite-portability"
+            >
+              <span class="skill-index">05 / PORTABILITY</span>
+              <span class="skill-glyph" aria-hidden="true">ZIP</span>
+              <h3>Move knowledge without losing meaning.</h3>
+              <p>
+                Backups, Merge versus Replace, settings scope, exports, and
+                precise Obsidian import conversions and limits.
+              </p>
+              <span class="skill-link"
+                >Open skill <span aria-hidden="true">&rarr;</span></span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section honest-section" aria-labelledby="honest-title">
+        <div class="container-wide honest-grid">
+          <div class="reveal">
+            <span class="section-kicker">capability != imitation</span>
+            <h2 class="section-title" id="honest-title">
+              Useful because it knows when to say <em>no.</em>
+            </h2>
+          </div>
+          <div class="honest-ledger reveal">
+            <div>
+              <span class="ledger-state yes">shipped</span>
+              <strong>Wiki links, backlinks, graph</strong>
+              <p>Teach link syntax. Let Moldavite derive relationships.</p>
+            </div>
+            <div>
+              <span class="ledger-state yes">shipped</span>
+              <strong>Local MCP server</strong>
+              <p>Teach exact tools and preserve the user's write gate.</p>
+            </div>
+            <div>
+              <span class="ledger-state no">not invented</span>
+              <strong>Bases, Canvas, note CLI</strong>
+              <p>
+                No fake commands or formats for features Moldavite does not
+                ship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="install" aria-labelledby="install-title">
+        <div class="container-wide">
+          <div class="section-heading reveal">
+            <span class="section-kicker">one repository / many agents</span>
+            <h2 class="section-title" id="install-title">
+              Install once. Let context do the <em>routing.</em>
+            </h2>
+            <p class="section-sub">
+              Pick your client. The skill descriptions tell it exactly when each
+              instruction set should load.
+            </p>
+          </div>
+
+          <div class="install-shell liquid-glass reveal" data-install-tabs>
+            <div
+              class="install-tabs"
+              role="tablist"
+              aria-label="Installation method"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="install-npx"
+                id="tab-npx"
+              >
+                npx skills
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="install-opencode"
+                id="tab-opencode"
+              >
+                OpenCode
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="install-claude"
+                id="tab-claude"
+              >
+                Claude Code
+              </button>
+            </div>
+
+            <div
+              class="install-panel"
+              role="tabpanel"
+              id="install-npx"
+              aria-labelledby="tab-npx"
+            >
+              <div class="code-row">
+                <pre><code id="command-npx">npx skills add https://github.com/mauropereiira/moldavite-skills</code></pre>
+                <button
+                  class="copy-button"
+                  type="button"
+                  data-copy-target="command-npx"
+                >
+                  Copy
+                </button>
+              </div>
+              <p>
+                Skills CLI discovers all five skills and lets you choose which
+                clients receive them.
+              </p>
+            </div>
+
+            <div
+              class="install-panel"
+              role="tabpanel"
+              id="install-opencode"
+              aria-labelledby="tab-opencode"
+              hidden
+            >
+              <div class="code-row">
+                <pre><code id="command-opencode">mkdir -p ~/.config/opencode/skills &amp;&amp; git clone https://github.com/mauropereiira/moldavite-skills.git ~/.config/opencode/skills/moldavite-skills</code></pre>
+                <button
+                  class="copy-button"
+                  type="button"
+                  data-copy-target="command-opencode"
+                >
+                  Copy
+                </button>
+              </div>
+              <p>
+                Restart OpenCode after installation. Nested
+                <code>SKILL.md</code> files are discovered automatically.
+              </p>
+            </div>
+
+            <div
+              class="install-panel"
+              role="tabpanel"
+              id="install-claude"
+              aria-labelledby="tab-claude"
+              hidden
+            >
+              <div class="code-row code-row-multiline">
+                <pre><code id="command-claude">/plugin marketplace add mauropereiira/moldavite-skills
+/plugin install moldavite@moldavite-skills</code></pre>
+                <button
+                  class="copy-button"
+                  type="button"
+                  data-copy-target="command-claude"
+                >
+                  Copy
+                </button>
+              </div>
+              <p>
+                Add the marketplace, then install the Moldavite skill
+                collection.
+              </p>
+            </div>
+          </div>
+
+          <p class="install-footnote reveal">
+            Skills provide instructions. To let an agent query your notes,
+            connect Moldavite's local MCP server too.
+          </p>
+        </div>
+      </section>
+
+      <section class="section mcp-section" id="mcp" aria-labelledby="mcp-title">
+        <div class="container-wide">
+          <div class="mcp-grid">
+            <div class="reveal">
+              <span class="section-kicker">moldavite --mcp</span>
+              <h2 class="section-title" id="mcp-title">
+                Skills teach. MCP <em>acts.</em>
+              </h2>
+              <p class="section-sub">
+                The pack tells agents how to work. Moldavite's app binary gives
+                them a local, permissioned path to the Forge. Nothing is
+                uploaded to make that connection work.
+              </p>
+
+              <div class="terminal liquid-glass">
+                <div class="terminal-bar">
+                  <span><i></i><i></i><i></i> local stdio</span>
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy-target="mcp-command"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <pre><code><span class="terminal-prompt">$ </span><span id="mcp-command">claude mcp add moldavite -- "/Applications/Moldavite.app/Contents/MacOS/moldavite" --mcp</span></code></pre>
+              </div>
+            </div>
+
+            <div class="permission-stack reveal">
+              <article class="permission-card liquid-glass">
+                <div class="permission-heading">
+                  <span class="permission-light read"></span>
+                  <div>
+                    <span>available by default</span>
+                    <h3>Read tools</h3>
+                  </div>
+                  <strong>04</strong>
+                </div>
+                <ul>
+                  <li>
+                    <code>list_notes</code
+                    ><span>see paths and locked placeholders</span>
+                  </li>
+                  <li>
+                    <code>read_note</code
+                    ><span>read complete unlocked Markdown</span>
+                  </li>
+                  <li>
+                    <code>search_notes</code
+                    ><span>semantic or keyword candidates</span>
+                  </li>
+                  <li>
+                    <code>get_backlinks</code
+                    ><span>trace incoming wiki links</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="permission-card liquid-glass permission-gated">
+                <div class="permission-heading">
+                  <span class="permission-light write"></span>
+                  <div>
+                    <span>explicit switch required</span>
+                    <h3>Write tools</h3>
+                  </div>
+                  <strong>03</strong>
+                </div>
+                <ul>
+                  <li>
+                    <code>create_note</code><span>create, never overwrite</span>
+                  </li>
+                  <li>
+                    <code>write_note</code
+                    ><span>replace after reading first</span>
+                  </li>
+                  <li>
+                    <code>append_to_daily_note</code
+                    ><span>append on a local date</span>
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bridge-section" aria-labelledby="bridge-title">
+        <div class="container-wide bridge-card liquid-glass reveal">
+          <div class="bridge-mark" aria-hidden="true">
+            <img src="favicon.svg" alt="" width="72" height="72" />
+          </div>
+          <div>
+            <span class="section-kicker">the app behind the skills</span>
+            <h2 class="section-title" id="bridge-title">
+              Need the Forge first?
+            </h2>
+            <p>
+              Moldavite is a private, local-first macOS notes app. Plain
+              Markdown on disk, semantic search on your Mac, and an MCP server
+              whose writes stay off until you enable them.
+            </p>
+          </div>
+          <a
+            class="button-primary"
+            href="https://mauropereiira.github.io/Moldavite/"
+          >
+            Meet Moldavite <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="cta-title">
+        <div class="container">
+          <span class="section-kicker">MIT licensed / open source</span>
+          <h2 class="section-title" id="cta-title">
+            Give your agent the right <em>map.</em>
+          </h2>
+          <p>
+            Five focused skills. No account, runtime, daemon, or proprietary
+            format.
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#install">Install now</a>
+            <a
+              class="button-secondary liquid-glass"
+              href="https://github.com/mauropereiira/moldavite-skills"
+            >
+              Explore on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <a class="footer-brand" href="#top">Moldavite Skills</a>
+          <span>Built for the notes you own.</span>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="https://github.com/mauropereiira/moldavite-skills">Source</a>
+          <a href="https://github.com/mauropereiira/Moldavite">Moldavite</a>
+          <a href="https://agentskills.io/specification">Agent Skills spec</a>
+          <a href="https://github.com/kepano/obsidian-skills">Inspiration</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
