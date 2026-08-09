@@ -1,31 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="24%" r="75%">
-      <stop stop-color="#30452d" />
-      <stop offset=".54" stop-color="#101610" />
+    <radialGradient id="background-glow" cx="68%" cy="28%" r="88%">
+      <stop stop-color="#263525" />
+      <stop offset=".46" stop-color="#101510" />
       <stop offset="1" stop-color="#07090a" />
     </radialGradient>
-    <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="title-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#b7d6a0" />
+      <stop offset=".52" stop-color="#c9a227" />
+      <stop offset="1" stop-color="#9dc183" />
+    </linearGradient>
+    <linearGradient id="gem-gradient" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#b7d6a0" />
       <stop offset="1" stop-color="#4e7346" />
     </linearGradient>
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" />
+    <linearGradient id="glass-border" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e8e6df" stop-opacity=".45" />
+      <stop offset=".32" stop-color="#9dc183" stop-opacity=".08" />
+      <stop offset=".72" stop-color="#c9a227" stop-opacity=".12" />
+      <stop offset="1" stop-color="#e8e6df" stop-opacity=".32" />
+    </linearGradient>
+    <filter id="og-grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="23" result="noise" />
+      <feColorMatrix in="noise" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .06 0" result="soft-noise" />
+      <feBlend in="SourceGraphic" in2="soft-noise" mode="soft-light" />
+    </filter>
+    <filter id="og-shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28" />
     </filter>
   </defs>
-  <rect width="1200" height="1200" fill="url(#glow)" />
-  <g transform="translate(0 285)">
-    <circle cx="1005" cy="315" r="140" fill="#9dc183" opacity=".08" filter="url(#shadow)" />
-    <g transform="translate(910 200)">
-      <path d="M82 0 164 53l-24 132-58 39-58-39L0 53 82 0Z" fill="#9dc183" opacity=".08" stroke="url(#gem)" stroke-width="3" />
-      <path d="m0 53 82 44 82-44M24 185l58-88 58 88M82 0v97" fill="none" stroke="#9dc183" stroke-width="2" opacity=".7" />
-      <path d="M-24 80v34m-17-17h34M188 80v34m-17-17h34" fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" />
+
+  <rect width="1200" height="630" fill="url(#background-glow)" />
+  <g opacity=".16">
+    <path d="M82 0v630M1118 0v630" stroke="#e8e6df" />
+    <path d="M0 90h1200M0 540h1200" stroke="#e8e6df" />
+  </g>
+  <rect width="1200" height="630" fill="#07090a" opacity=".12" filter="url(#og-grain)" />
+
+  <g transform="translate(76 68)">
+    <rect width="1048" height="494" rx="28" fill="#ffffff" fill-opacity=".025" stroke="url(#glass-border)" stroke-width="2" />
+    <path d="M0 70h1048" stroke="#e8e6df" stroke-opacity=".08" />
+
+    <g transform="translate(28 20)">
+      <rect width="34" height="34" rx="9" fill="#0a0d0b" stroke="#9dc183" stroke-opacity=".28" />
+      <path d="M17 5 27 11l-3 16-7 5-7-5-3-16L17 5Z" fill="#9dc183" fill-opacity=".13" stroke="url(#gem-gradient)" />
+      <path d="m7 11 10 6 10-6M10 27l7-10 7 10M17 5v12" fill="none" stroke="#9dc183" stroke-width=".8" />
+      <text x="48" y="24" fill="#e8e6df" font-family="Georgia, serif" font-size="24">Moldavite</text>
+      <text x="158" y="23" fill="#9dc183" font-family="monospace" font-size="10" letter-spacing="2">SKILLS</text>
     </g>
-    <text x="88" y="82" fill="#9dc183" font-family="monospace" font-size="17" letter-spacing="5">SKILL.MD X 5</text>
-    <text x="84" y="210" fill="#e8e6df" font-family="Georgia, serif" font-size="78">Teach your agent</text>
-    <text x="84" y="298" fill="#e8e6df" font-family="Georgia, serif" font-size="78">how your Forge works.</text>
-    <text x="90" y="390" fill="#aaa9a3" font-family="Arial, sans-serif" font-size="25">Portable Agent Skills for Moldavite Markdown, Forges, MCP,</text>
-    <text x="90" y="428" fill="#aaa9a3" font-family="Arial, sans-serif" font-size="25">daily notes, and migration.</text>
-    <text x="90" y="535" fill="#c9a227" font-family="monospace" font-size="18">mauropereiira/moldavite-skills</text>
+
+    <g transform="translate(54 124)">
+      <text fill="#9dc183" font-family="monospace" font-size="13" letter-spacing="3">AGENT SKILLS FOR MOLDAVITE</text>
+      <text y="88" fill="#e8e6df" font-family="Georgia, serif" font-size="72">Give your agent</text>
+      <text y="164" fill="url(#title-gradient)" font-family="Georgia, serif" font-size="72">the Moldavite manual.</text>
+      <text y="226" fill="#e8e6df" fill-opacity=".63" font-family="monospace" font-size="17">Markdown · Forges · MCP · Daily notes · Portability</text>
+      <text y="306" fill="#e8e6df" fill-opacity=".36" font-family="monospace" font-size="13" letter-spacing="1.2">5 SKILL.MD FILES   +   7 MCP TOOLS</text>
+      <text y="345" fill="#c9a227" font-family="monospace" font-size="13">mauropereiira/moldavite-skills</text>
+    </g>
+
+    <g transform="translate(828 126)">
+      <circle cx="84" cy="120" r="126" fill="#9dc183" fill-opacity=".1" filter="url(#og-shadow)" />
+      <path d="M84 0 168 54l-24 138-60 46-60-46L0 54 84 0Z" fill="#9dc183" fill-opacity=".07" stroke="url(#gem-gradient)" stroke-width="3" />
+      <path d="m0 54 84 48 84-48M24 192l60-90 60 90M84 0v102" fill="none" stroke="#9dc183" stroke-width="2" stroke-opacity=".76" />
+      <path d="M-25 94v34m-17-17h34M193 94v34m-17-17h34" fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" />
+      <path d="m49 83 35 19 35-19-35 91-35-91Z" fill="url(#gem-gradient)" fill-opacity=".18" />
+    </g>
   </g>
 </svg>
