@@ -4,22 +4,40 @@
   function setupNavigation() {
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".nav-links");
+
     if (!toggle || !nav) return;
 
+    function closeNavigation() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
     toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
     nav.addEventListener("click", function (event) {
-      if (event.target.tagName !== "A") return;
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+      if (event.target.closest("a")) closeNavigation();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!nav.classList.contains("is-open")) return;
+      if (nav.contains(event.target) || toggle.contains(event.target)) return;
+      closeNavigation();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || !nav.classList.contains("is-open")) return;
+      closeNavigation();
+      toggle.focus();
     });
   }
 
   function setupReveals() {
-    var targets = document.querySelectorAll(".reveal, .reveal-group");
+    var targets = document.querySelectorAll(
+      "[data-reveal], [data-reveal-group]",
+    );
     var reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -39,7 +57,10 @@
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+      {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08,
+      },
     );
 
     targets.forEach(function (target) {
@@ -47,87 +68,70 @@
     });
   }
 
-  function setupInstallTabs() {
-    var root = document.querySelector("[data-install-tabs]");
-    if (!root) return;
+  function fallbackCopy(value) {
+    var textArea = document.createElement("textarea");
+    textArea.value = value;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    textArea.style.pointerEvents = "none";
+    document.body.appendChild(textArea);
+    textArea.select();
 
-    var tabs = Array.prototype.slice.call(
-      root.querySelectorAll('[role="tab"]'),
-    );
-    var panels = Array.prototype.slice.call(
-      root.querySelectorAll('[role="tabpanel"]'),
-    );
+    var copied = document.execCommand("copy");
+    textArea.remove();
 
-    function activate(tab) {
-      tabs.forEach(function (candidate) {
-        candidate.setAttribute(
-          "aria-selected",
-          candidate === tab ? "true" : "false",
-        );
-      });
-      panels.forEach(function (panel) {
-        panel.hidden = panel.id !== tab.getAttribute("aria-controls");
-      });
+    if (!copied) throw new Error("Copy was unavailable");
+  }
+
+  function copyText(value) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(value);
     }
 
-    tabs.forEach(function (tab, index) {
-      tab.addEventListener("click", function () {
-        activate(tab);
-      });
-
-      tab.addEventListener("keydown", function (event) {
-        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-        var direction = event.key === "ArrowRight" ? 1 : -1;
-        var next = (index + direction + tabs.length) % tabs.length;
-        activate(tabs[next]);
-        tabs[next].focus();
-        event.preventDefault();
-      });
+    return new Promise(function (resolve, reject) {
+      try {
+        fallbackCopy(value);
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
     });
   }
 
   function setupCopyButtons() {
+    var status = document.getElementById("copy-status");
+
     document.querySelectorAll("[data-copy-target]").forEach(function (button) {
       button.addEventListener("click", function () {
         var target = document.getElementById(
           button.getAttribute("data-copy-target"),
         );
+
         if (!target) return;
 
-        var value = target.textContent;
-        var original = button.textContent;
+        var originalLabel = button.textContent.trim();
 
-        function showStatus(label) {
-          button.textContent = label;
-          window.setTimeout(function () {
-            button.textContent = original;
-          }, 1500);
-        }
+        copyText(target.textContent).then(
+          function () {
+            button.textContent = "Copied";
+            if (status) status.textContent = "Command copied to clipboard.";
+          },
+          function () {
+            button.textContent = "Select";
+            if (status)
+              status.textContent = "Copy unavailable. Select the command text.";
+          },
+        );
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(value).then(
-            function () {
-              showStatus("Copied");
-            },
-            function () {
-              showStatus("Select text");
-            },
-          );
-          return;
-        }
-
-        var selection = window.getSelection();
-        var range = document.createRange();
-        range.selectNodeContents(target);
-        selection.removeAllRanges();
-        selection.addRange(range);
-        showStatus("Select text");
+        window.setTimeout(function () {
+          button.textContent = originalLabel;
+        }, 1600);
       });
     });
   }
 
   setupNavigation();
   setupReveals();
-  setupInstallTabs();
   setupCopyButtons();
 })();

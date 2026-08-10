@@ -27,13 +27,13 @@ so they work in Claude Code, Codex, OpenCode, and anything else that reads
 
 ## Skills
 
-| Skill | Description |
-| --- | --- |
-| [moldavite-markdown](skills/moldavite-markdown) | Create and edit Moldavite-compatible Markdown, frontmatter, wiki links, and tags |
-| [moldavite-forges](skills/moldavite-forges) | Work safely with Forge layout, paths, locked notes, and direct file edits |
-| [moldavite-mcp](skills/moldavite-mcp) | Read, search, create, and update notes through Moldavite's MCP server |
-| [moldavite-daily-notes](skills/moldavite-daily-notes) | Maintain daily notes, ISO weekly notes, and Moldavite templates |
-| [moldavite-portability](skills/moldavite-portability) | Back up, export, restore, and migrate Obsidian vaults into Moldavite |
+| Skill                                                 | Description                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [moldavite-markdown](skills/moldavite-markdown)       | Create and edit Moldavite-compatible Markdown, frontmatter, wiki links, and tags |
+| [moldavite-forges](skills/moldavite-forges)           | Work safely with Forge layout, paths, locked notes, and direct file edits        |
+| [moldavite-mcp](skills/moldavite-mcp)                 | Read, search, create, and update notes through Moldavite's MCP server            |
+| [moldavite-daily-notes](skills/moldavite-daily-notes) | Maintain daily notes, ISO weekly notes, and Moldavite templates                  |
+| [moldavite-portability](skills/moldavite-portability) | Back up, export, restore, and migrate Obsidian vaults into Moldavite             |
 
 Moldavite has no support for Obsidian Bases, JSON Canvas, or a general
 note-management CLI. This pack does not invent equivalents. The graph is derived
