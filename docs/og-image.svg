@@ -10,10 +10,6 @@
       <stop offset=".52" stop-color="#c9a227" />
       <stop offset="1" stop-color="#9dc183" />
     </linearGradient>
-    <linearGradient id="gem-gradient" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#b7d6a0" />
-      <stop offset="1" stop-color="#4e7346" />
-    </linearGradient>
     <linearGradient id="glass-border" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#e8e6df" stop-opacity=".45" />
       <stop offset=".32" stop-color="#9dc183" stop-opacity=".08" />
@@ -24,9 +20,6 @@
       <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="23" result="noise" />
       <feColorMatrix in="noise" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .06 0" result="soft-noise" />
       <feBlend in="SourceGraphic" in2="soft-noise" mode="soft-light" />
-    </filter>
-    <filter id="og-shadow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="28" />
     </filter>
   </defs>
 
@@ -41,12 +34,10 @@
     <rect width="1048" height="494" rx="28" fill="#ffffff" fill-opacity=".025" stroke="url(#glass-border)" stroke-width="2" />
     <path d="M0 70h1048" stroke="#e8e6df" stroke-opacity=".08" />
 
-    <g transform="translate(28 20)">
-      <rect width="34" height="34" rx="9" fill="#0a0d0b" stroke="#9dc183" stroke-opacity=".28" />
-      <path d="M17 5 27 11l-3 16-7 5-7-5-3-16L17 5Z" fill="#9dc183" fill-opacity=".13" stroke="url(#gem-gradient)" />
-      <path d="m7 11 10 6 10-6M10 27l7-10 7 10M17 5v12" fill="none" stroke="#9dc183" stroke-width=".8" />
-      <text x="48" y="24" fill="#e8e6df" font-family="Georgia, serif" font-size="24">Moldavite</text>
-      <text x="158" y="23" fill="#9dc183" font-family="monospace" font-size="10" letter-spacing="2">SKILLS</text>
+    <g transform="translate(34 20)">
+      <image x="0" y="2" width="26" height="26" href="data:image/png;base64,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" />
+      <text x="38" y="24" fill="#e8e6df" font-family="Georgia, serif" font-size="24">Moldavite</text>
+      <text x="148" y="23" fill="#9dc183" font-family="monospace" font-size="10" letter-spacing="2">SKILLS</text>
     </g>
 
     <g transform="translate(54 124)">
@@ -58,12 +49,20 @@
       <text y="345" fill="#c9a227" font-family="monospace" font-size="13">mauropereiira/moldavite-skills</text>
     </g>
 
-    <g transform="translate(828 126)">
-      <circle cx="84" cy="120" r="126" fill="#9dc183" fill-opacity=".1" filter="url(#og-shadow)" />
-      <path d="M84 0 168 54l-24 138-60 46-60-46L0 54 84 0Z" fill="#9dc183" fill-opacity=".07" stroke="url(#gem-gradient)" stroke-width="3" />
-      <path d="m0 54 84 48 84-48M24 192l60-90 60 90M84 0v102" fill="none" stroke="#9dc183" stroke-width="2" stroke-opacity=".76" />
-      <path d="M-25 94v34m-17-17h34M193 94v34m-17-17h34" fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" />
-      <path d="m49 83 35 19 35-19-35 91-35-91Z" fill="url(#gem-gradient)" fill-opacity=".18" />
+    <g transform="translate(832 134)">
+      <rect width="166" height="82" rx="15" fill="#9dc183" fill-opacity=".055" stroke="#9dc183" stroke-opacity=".3" />
+      <text x="18" y="32" fill="#9dc183" font-family="monospace" font-size="10" letter-spacing="1.8">SKILL.MD</text>
+      <text x="18" y="57" fill="#e8e6df" font-family="Georgia, serif" font-size="21">Context</text>
+
+      <path d="M83 82v32" stroke="#9dc183" stroke-opacity=".55" stroke-width="2" />
+      <circle cx="83" cy="98" r="4" fill="#c9a227" />
+
+      <rect y="114" width="166" height="82" rx="15" fill="#c9a227" fill-opacity=".04" stroke="#c9a227" stroke-opacity=".3" />
+      <text x="18" y="146" fill="#c9a227" font-family="monospace" font-size="10" letter-spacing="1.8">MCP</text>
+      <text x="18" y="171" fill="#e8e6df" font-family="Georgia, serif" font-size="21">Note tools</text>
+
+      <text x="2" y="235" fill="#e8e6df" fill-opacity=".58" font-family="monospace" font-size="11" letter-spacing="1">5 SKILLS</text>
+      <text x="93" y="235" fill="#e8e6df" fill-opacity=".58" font-family="monospace" font-size="11" letter-spacing="1">7 TOOLS</text>
     </g>
   </g>
 </svg>
