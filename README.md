@@ -1,4 +1,7 @@
-<h1 align="center">Moldavite Skills</h1>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.png">
+  <img src="docs/banner-light.png" alt="Moldavite Skills" width="100%">
+</picture>
 
 <p align="center">
   <em>Teach your agent how your notes actually work.</em>

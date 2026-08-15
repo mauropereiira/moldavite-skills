@@ -1,0 +1,43 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Fork PRs get a read-only token. Nothing here needs to write.
+permissions:
+  contents: read
+
+jobs:
+  # One job per check so each reports as its own required status. `matrix.run`
+  # is a literal defined below, never event input, so interpolating it is safe.
+  checks:
+    name: ${{ matrix.task }}
+    runs-on: ubuntu-latest
+    strategy:
+      # Report every failure in one pass instead of cancelling siblings.
+      fail-fast: false
+      matrix:
+        include:
+          - task: check-skills
+            run: npm run validate:skills
+          - task: check-site
+            run: npm run validate:site
+          - task: check-format
+            run: npm run format:check
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run ${{ matrix.task }}
+        run: ${{ matrix.run }}
