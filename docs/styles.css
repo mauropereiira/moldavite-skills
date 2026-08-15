@@ -15,6 +15,10 @@
      re-reads them when the theme flips, so the sky recolours with the page
      instead of carrying its own hardcoded palette. */
   --star: rgba(14, 13, 10, 0.22);
+  /* Depth. Distant stars sit back, near ones come forward, so the parallax
+     reads as depth rather than as two sheets sliding past each other. */
+  --star-far: rgba(14, 13, 10, 0.11);
+  --star-near: rgba(14, 13, 10, 0.34);
   --star-bright: rgba(14, 13, 10, 0.46);
   --meteor: rgba(14, 13, 10, 0.5);
   --asteroid: #0e0d0a;
@@ -30,9 +34,21 @@
   --container: 90rem;
   --measure: 68ch;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
-  --section-y: clamp(8rem, 14vw, 15rem);
+  /* Was clamp(8rem, 14vw, 15rem) — 240px of air between every section, which
+     read as a page that had lost its content rather than one with confidence. */
+  --section-y: clamp(5rem, 8vw, 8rem);
   --radius: 0;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* The app's motion tokens, verbatim from src/index.css. The site used one
+     easing curve of its own invention; a button that presses differently in
+     the two places is the kind of seam people feel without naming. */
+  --dur-press: 90ms;
+  --dur-micro: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease: var(--ease-standard);
 }
 
 /* Dark is opt-in and nothing else.
@@ -60,6 +76,8 @@
   /* Stars carry the night rather than fighting it, so they get brighter here
      than their light-mode counterparts rather than merely inverted. */
   --star: rgba(249, 246, 237, 0.3);
+  --star-far: rgba(249, 246, 237, 0.16);
+  --star-near: rgba(249, 246, 237, 0.52);
   --star-bright: rgba(249, 246, 237, 0.72);
   --meteor: rgba(249, 246, 237, 0.75);
   --asteroid: #f9f6ed;
@@ -245,29 +263,13 @@ main:focus {
   transform: translateY(0);
 }
 
-.guide-lines {
+.sky {
   position: fixed;
   z-index: 0;
-  inset-block: 0;
-  inset-inline: 0;
-  width: min(calc(100% - (2 * var(--gutter))), var(--container));
-  margin-inline: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-}
-
-.guide-lines span {
-  position: absolute;
-  inset-block: 0;
-  width: 1px;
-  background: var(--rule);
-}
-
-.guide-lines span:first-child {
-  inset-inline-start: 0;
-}
-
-.guide-lines span:last-child {
-  inset-inline-end: 0;
 }
 
 .liquid-glass {
@@ -489,17 +491,17 @@ h2 {
 
 .hero {
   position: relative;
-  display: grid;
-  min-height: calc(100svh - 5.5rem);
+  display: flex;
+  min-height: 0;
   border-block-end: 1px solid var(--rule);
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(25rem, 0.96fr);
-  gap: clamp(3rem, 7vw, 6.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 7vw, 6rem);
   align-items: center;
-  padding-block: clamp(6rem, 12vh, 10rem);
+  padding-block: clamp(3rem, 6vh, 5rem) var(--section-y);
 }
 
 .hero-copy,
@@ -507,12 +509,63 @@ h2 {
   min-width: 0;
 }
 
-.hero h1 {
-  max-width: 14ch;
+.hero-copy {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-visual {
+  width: min(100%, 42rem);
+}
+
+.hero-lockup {
+  width: 73%;
+  max-width: none;
   margin: 0;
-  font-size: clamp(3.5rem, 5vw, 5.75rem);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.hero-wordmark {
+  width: 100%;
+}
+
+.hero-wordmark path {
+  fill: currentColor;
+}
+
+.hero-subbrand {
+  display: block;
+  width: 100%;
+  margin-block-start: clamp(0.75rem, 1.4vw, 1.25rem);
+  padding-inline-end: 0.03em;
+  color: var(--ink-mute);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-align: end;
+  text-transform: uppercase;
+}
+
+.hero-copy > .section-kicker {
+  margin-block-start: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.hero-statement {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 3.25rem);
   font-weight: 450;
-  line-height: 0.9;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .gradient-text {
@@ -523,6 +576,7 @@ h2 {
 .hero-lede {
   max-width: 48rem;
   margin-block: 2rem 2.2rem;
+  margin-inline: auto;
   color: var(--ink-mute);
   font-size: clamp(1rem, 1.4vw, 1.2rem);
   line-height: 1.65;
@@ -536,6 +590,7 @@ h2 {
 
 .hero-command {
   width: min(100%, 38rem);
+  margin-inline: auto;
 }
 
 .command-heading {
@@ -602,6 +657,7 @@ h2 {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 2rem;
+  justify-content: center;
   margin-block-start: 1.75rem;
 }
 
@@ -638,6 +694,63 @@ h2 {
 .text-link:hover {
   border-color: var(--ink);
   color: var(--ink);
+}
+
+/* Motion borrowed from the app's .btn so a press feels the same in both:
+   120ms on colour and border, and a 0.98 scale on :active. The rule under the
+   label is the affordance, so it is the thing that animates — it wipes in from
+   the left on hover rather than just changing colour. */
+.button,
+.text-link,
+.skill-card > a,
+.copy-button {
+  position: relative;
+  transition:
+    color var(--dur-micro) var(--ease-standard),
+    border-color var(--dur-micro) var(--ease-standard),
+    transform var(--dur-press) var(--ease-standard);
+}
+
+.button::after,
+.text-link::after,
+.skill-card > a::after,
+.copy-button::after {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  height: 1px;
+  background: var(--ink);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.button:hover,
+.text-link:hover,
+.skill-card > a:hover,
+.copy-button:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.button:hover::after,
+.text-link:hover::after,
+.skill-card > a:hover::after,
+.copy-button:hover::after,
+.button:focus-visible::after,
+.text-link:focus-visible::after,
+.skill-card > a:focus-visible::after,
+.copy-button:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.button:active,
+.text-link:active,
+.skill-card > a:active,
+.copy-button:active {
+  transform: scale(0.98);
 }
 
 .system-card {
@@ -1423,10 +1536,6 @@ h2 {
 }
 
 @media (min-width: 90rem) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 0.92fr) minmax(35rem, 1.08fr);
-  }
-
   .system-stage {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(13.75rem, 0.78fr);
@@ -1489,29 +1598,6 @@ h2 {
 }
 
 @media (max-width: 65rem) {
-  .hero {
-    min-height: 0;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-copy {
-    text-align: center;
-  }
-
-  .hero-copy .section-kicker,
-  .hero-links {
-    justify-content: center;
-  }
-
-  .hero h1,
-  .hero-lede,
-  .hero-command {
-    margin-inline: auto;
-  }
-
   .system-card {
     margin-inline: auto;
   }
@@ -1635,11 +1721,11 @@ h2 {
   }
 
   .hero-grid {
-    padding-block: 5rem 7rem;
+    padding-block: 4rem 6rem;
   }
 
-  .hero h1 {
-    font-size: clamp(3.5rem, 17vw, 5.6rem);
+  .hero-lockup {
+    width: 100%;
   }
 
   .hero-lede {
@@ -1758,8 +1844,8 @@ h2 {
     display: none;
   }
 
-  .hero h1 {
-    font-size: clamp(3.2rem, 16.8vw, 4.35rem);
+  .hero-statement {
+    font-size: clamp(1.75rem, 10vw, 2.6rem);
   }
 
   .hero-command code,
