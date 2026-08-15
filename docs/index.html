@@ -8,7 +8,7 @@
       name="description"
       content="Five Agent Skills that teach compatible AI clients how to work with Moldavite Markdown, Forges, MCP, daily notes, and portability."
     />
-    <meta name="theme-color" content="#07090a" />
+    <meta name="theme-color" content="#F9F6ED" />
     <meta property="og:title" content="Moldavite Skills" />
     <meta
       property="og:description"
@@ -29,11 +29,19 @@
       href="https://mauropereiira.github.io/moldavite-skills/"
     />
     <link rel="icon" href="favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="fonts/Geist-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/GeistMono-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link rel="stylesheet" href="styles.css" />
     <script>
@@ -44,85 +52,10 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="page-ambient" aria-hidden="true">
-      <span class="ambient-orb ambient-orb-one"></span>
-      <span class="ambient-orb ambient-orb-two"></span>
-    </div>
-
     <div class="guide-lines" aria-hidden="true">
       <span></span>
       <span></span>
     </div>
-
-    <svg class="filter-definitions" aria-hidden="true">
-      <defs>
-        <filter
-          id="headline-grain"
-          x="-8%"
-          y="-16%"
-          width="116%"
-          height="132%"
-          color-interpolation-filters="sRGB"
-        >
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.92"
-            numOctaves="2"
-            seed="19"
-            result="noise"
-          />
-          <feColorMatrix
-            in="noise"
-            type="matrix"
-            values="1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    0 0 0 .18 0"
-            result="soft-noise"
-          />
-          <feComposite
-            in="soft-noise"
-            in2="SourceGraphic"
-            operator="in"
-            result="text-noise"
-          />
-          <feBlend in="SourceGraphic" in2="text-noise" mode="screen" />
-        </filter>
-
-        <filter
-          id="section-grain"
-          x="-5%"
-          y="-12%"
-          width="110%"
-          height="124%"
-          color-interpolation-filters="sRGB"
-        >
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.38"
-            numOctaves="2"
-            seed="31"
-            result="watermark-noise"
-          />
-          <feColorMatrix
-            in="watermark-noise"
-            type="matrix"
-            values="1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    0 0 0 .1 0"
-            result="faint-noise"
-          />
-          <feComposite
-            in="faint-noise"
-            in2="SourceGraphic"
-            operator="in"
-            result="masked-noise"
-          />
-          <feBlend in="SourceGraphic" in2="masked-noise" mode="soft-light" />
-        </filter>
-      </defs>
-    </svg>
 
     <header class="site-header">
       <div class="nav-shell">
@@ -162,6 +95,14 @@
           <a href="#install">Install</a>
           <a href="https://mauropereiira.github.io/Moldavite/">Moldavite</a>
           <a href="https://github.com/mauropereiira/Moldavite">App source</a>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Switch to dark"
+          >
+            <span class="theme-toggle-mark" aria-hidden="true"></span>
+          </button>
           <a
             class="nav-source"
             href="https://github.com/mauropereiira/moldavite-skills"
@@ -914,7 +855,7 @@
       </div>
 
       <div class="footer-base shell">
-        <span>Built for local Markdown files on macOS.</span>
+        <span>Built for local Markdown files on macOS and Windows.</span>
         <a
           href="https://github.com/mauropereiira/moldavite-skills/blob/main/LICENSE"
           >MIT License</a

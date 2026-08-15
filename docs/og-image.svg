@@ -1,68 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <radialGradient id="background-glow" cx="68%" cy="28%" r="88%">
-      <stop stop-color="#263525" />
-      <stop offset=".46" stop-color="#101510" />
-      <stop offset="1" stop-color="#07090a" />
-    </radialGradient>
-    <linearGradient id="title-gradient" x1="0" y1="0" x2="1" y2="0">
-      <stop stop-color="#b7d6a0" />
-      <stop offset=".52" stop-color="#c9a227" />
-      <stop offset="1" stop-color="#9dc183" />
-    </linearGradient>
-    <linearGradient id="glass-border" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#e8e6df" stop-opacity=".45" />
-      <stop offset=".32" stop-color="#9dc183" stop-opacity=".08" />
-      <stop offset=".72" stop-color="#c9a227" stop-opacity=".12" />
-      <stop offset="1" stop-color="#e8e6df" stop-opacity=".32" />
-    </linearGradient>
-    <filter id="og-grain" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="23" result="noise" />
-      <feColorMatrix in="noise" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .06 0" result="soft-noise" />
-      <feBlend in="SourceGraphic" in2="soft-noise" mode="soft-light" />
-    </filter>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#background-glow)" />
-  <g opacity=".16">
-    <path d="M82 0v630M1118 0v630" stroke="#e8e6df" />
-    <path d="M0 90h1200M0 540h1200" stroke="#e8e6df" />
-  </g>
-  <rect width="1200" height="630" fill="#07090a" opacity=".12" filter="url(#og-grain)" />
-
-  <g transform="translate(76 68)">
-    <rect width="1048" height="494" rx="28" fill="#ffffff" fill-opacity=".025" stroke="url(#glass-border)" stroke-width="2" />
-    <path d="M0 70h1048" stroke="#e8e6df" stroke-opacity=".08" />
-
-    <g transform="translate(34 20)">
-      <image x="0" y="2" width="26" height="26" href="data:image/png;base64,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" />
-      <text x="38" y="24" fill="#e8e6df" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="-.6">Moldavite</text>
-      <text x="148" y="23" fill="#9dc183" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2">SKILLS</text>
-    </g>
-
-    <g transform="translate(54 124)">
-      <text fill="#9dc183" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3">AGENT SKILLS FOR MOLDAVITE</text>
-      <text y="88" fill="#e8e6df" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="-2.4">Give your agent</text>
-      <text y="164" fill="url(#title-gradient)" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="-2.4">the Moldavite manual.</text>
-      <text y="226" fill="#e8e6df" fill-opacity=".63" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="500">Markdown · Forges · MCP · Daily notes · Portability</text>
-      <text y="306" fill="#e8e6df" fill-opacity=".36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="1.2">5 SKILL.MD FILES   +   7 MCP TOOLS</text>
-      <text y="345" fill="#c9a227" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500">mauropereiira/moldavite-skills</text>
-    </g>
-
-    <g transform="translate(832 134)">
-      <rect width="166" height="82" rx="15" fill="#9dc183" fill-opacity=".055" stroke="#9dc183" stroke-opacity=".3" />
-      <text x="18" y="32" fill="#9dc183" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.8">SKILL.MD</text>
-      <text x="18" y="57" fill="#e8e6df" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="-.4">Context</text>
-
-      <path d="M83 82v32" stroke="#9dc183" stroke-opacity=".55" stroke-width="2" />
-      <circle cx="83" cy="98" r="4" fill="#c9a227" />
-
-      <rect y="114" width="166" height="82" rx="15" fill="#c9a227" fill-opacity=".04" stroke="#c9a227" stroke-opacity=".3" />
-      <text x="18" y="146" fill="#c9a227" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.8">MCP</text>
-      <text x="18" y="171" fill="#e8e6df" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="-.4">Note tools</text>
-
-      <text x="2" y="235" fill="#e8e6df" fill-opacity=".58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1">5 SKILLS</text>
-      <text x="93" y="235" fill="#e8e6df" fill-opacity=".58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1">7 TOOLS</text>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Moldavite">
+  <title>Moldavite</title>
+  <rect width="1200" height="630" fill="#F9F6ED"/>
+  <g transform="translate(154.04 402.24) scale(0.21215 -0.21215)" fill="#0E0D0A">
+    <path d="M208 426.25 421.25 65 634.5 426.25 682.5 0H805L708.75 735L421.25 260.25L133.75 735L37.5 0H160Z"/>
+    <path d="M864.75 230.0Q864.75 159.75 897.375 105.375Q930.0 51.0 986.25 20.5Q1042.5 -10.0 1112.75 -10.0Q1183.75 -10.0 1239.625 20.5Q1295.5 51.0 1328.125 105.375Q1360.75 159.75 1360.75 230.0Q1360.75 301.25 1328.125 355.25Q1295.5 409.25 1239.625 439.75Q1183.75 470.25 1112.75 470.25Q1042.5 470.25 986.25 439.75Q930.0 409.25 897.375 355.25Q864.75 301.25 864.75 230.0ZM975.75 230.0Q975.75 273.0 993.875 305.875Q1012.0 338.75 1043.0 357.0Q1074.0 375.25 1112.75 375.25Q1151.5 375.25 1182.5 357.0Q1213.5 338.75 1231.625 305.875Q1249.75 273.0 1249.75 230.0Q1249.75 187.0 1231.625 154.5Q1213.5 122.0 1182.5 103.5Q1151.5 85.0 1112.75 85.0Q1074.0 85.0 1043.0 103.5Q1012.0 122.0 993.875 154.5Q975.75 187.0 975.75 230.0Z"/>
+    <path d="M1451.75 780.0V0.0H1560.5V780.0Z"/>
+    <path d="M2032.0 780.0V0.0H2140.75V780.0ZM1650.75 230.0Q1650.75 154.75 1681.875 100.875Q1713.0 47.0 1764.25 18.5Q1815.5 -10.0 1875.0 -10.0Q1933.0 -10.0 1976.625 19.0Q2020.25 48.0 2045.375 102.0Q2070.5 156.0 2070.5 230.0Q2070.5 305.0 2045.375 358.5Q2020.25 412.0 1976.625 441.0Q1933.0 470.0 1875.0 470.0Q1815.5 470.0 1764.25 441.5Q1713.0 413.0 1681.875 359.625Q1650.75 306.25 1650.75 230.0ZM1763.0 230.0Q1763.0 276.25 1781.875 309.0Q1800.75 341.75 1832.5 359.0Q1864.25 376.25 1901.25 376.25Q1932.5 376.25 1962.75 359.25Q1993.0 342.25 2012.5 309.5Q2032.0 276.75 2032.0 230.0Q2032.0 183.25 2012.5 150.5Q1993.0 117.75 1962.75 100.75Q1932.5 83.75 1901.25 83.75Q1864.25 83.75 1832.5 101.0Q1800.75 118.25 1781.875 151.125Q1763.0 184.0 1763.0 230.0Z"/>
+    <path d="M2531.0 142.75Q2531.0 164.5 2520.75 179.875Q2510.5 195.25 2489.25 203.75Q2468.0 212.25 2434.0 212.25Q2395.0 212.25 2360.125 202.125Q2325.25 192.0 2294.75 170.25V225.25Q2303.75 236.0 2325.375 249.5Q2347.0 263.0 2380.5 273.125Q2414.0 283.25 2460.5 283.25Q2546.25 283.25 2593.5 243.5Q2640.75 203.75 2640.75 137.0Q2640.75 90.0 2618.5 57.125Q2596.25 24.25 2559.375 7.125Q2522.5 -10.0 2479.75 -10.0Q2439.25 -10.0 2400.875 4.625Q2362.5 19.25 2337.125 48.875Q2311.75 78.5 2311.75 122.5L2327.75 182.5Q2327.75 148.0 2343.75 122.75Q2359.75 97.5 2386.25 84.125Q2412.75 70.75 2445.25 70.75Q2470.0 70.75 2489.5 79.0Q2509.0 87.25 2520.0 103.625Q2531.0 120.0 2531.0 142.75ZM2565.25 340.0Q2554.75 347.25 2534.5 357.625Q2514.25 368.0 2485.875 375.625Q2457.5 383.25 2425.0 383.25Q2404.0 383.25 2386.0 379.125Q2368.0 375.0 2354.875 366.125Q2341.75 357.25 2334.75 342.875Q2327.75 328.5 2327.75 307.25V0.0H2221.5V327.5Q2221.5 373.75 2246.125 405.625Q2270.75 437.5 2314.375 454.375Q2358.0 471.25 2414.75 471.25Q2479.25 471.25 2528.5 453.0Q2577.75 434.75 2609.25 415.75Z"/>
+    <path d="M2684.75 460.0 2923.5 -42.5 3162.25 460.0H3043.5L2923.5 163.0L2803.5 460.0Z"/>
+    <path d="M3214.0 643.0Q3214.0 615.5 3234.25 596.375Q3254.5 577.25 3282.25 577.25Q3310.75 577.25 3330.625 596.375Q3350.5 615.5 3350.5 643.0Q3350.5 671.25 3330.625 690.0Q3310.75 708.75 3282.25 708.75Q3254.5 708.75 3234.25 690.0Q3214.0 671.25 3214.0 643.0ZM3228.75 460.0V0.0H3335.5V460.0Z"/>
+    <path d="M3409.0 460.0V365.0H3670.25V460.0ZM3486.5 620.0V0.0H3592.75V620.0Z"/>
+    <path d="M3932.25 -10.0Q4011.75 -10.0 4069.0 21.25Q4126.25 52.5 4162.5 114.5L4069.25 152.25Q4047.5 115.25 4014.5 97.0Q3981.5 78.75 3937.25 78.75Q3895.25 78.75 3865.875 97.0Q3836.5 115.25 3821.375 149.875Q3806.25 184.5 3806.5 233.75Q3807.25 284.0 3822.375 318.0Q3837.5 352.0 3866.125 369.75Q3894.75 387.5 3936.0 387.5Q3970.25 387.5 3995.625 372.5Q4021.0 357.5 4035.375 330.75Q4049.75 304.0 4049.75 267.25Q4049.75 260.25 4046.5 249.875Q4043.25 239.5 4039.5 233.5L4073.0 279.5H3761.5V205.0H4165.5Q4166.0 209.25 4166.375 218.0Q4166.75 226.75 4166.75 235.25Q4166.75 308.75 4139.625 361.375Q4112.5 414.0 4061.25 442.0Q4010.0 470.0 3937.25 470.0Q3864.25 470.0 3810.125 440.375Q3756.0 410.75 3726.375 356.875Q3696.75 303.0 3696.75 230.0Q3696.75 158.0 3726.0 104.125Q3755.25 50.25 3808.5 20.125Q3861.75 -10.0 3932.25 -10.0Z"/>
   </g>
 </svg>

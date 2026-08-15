@@ -14,7 +14,8 @@
 ---
 
 Agent Skills for [Moldavite](https://github.com/mauropereiira/Moldavite), a notes
-app for macOS that keeps everything as plain Markdown in a folder you own.
+app for macOS and Windows that keeps everything as plain Markdown in a folder
+you own.
 
 Moldavite's MCP server gives an agent the note tools. These skills give it the
 context to use them well: the Markdown dialect, the Forge layout, how daily and

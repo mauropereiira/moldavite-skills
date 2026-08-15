@@ -1,6 +1,73 @@
 (function () {
   "use strict";
 
+  var THEME_STORAGE_KEY = "moldavite-site-theme";
+  var activeTheme = readStoredTheme();
+
+  applyTheme(activeTheme, false);
+
+  function readStoredTheme() {
+    try {
+      return window.localStorage.getItem(THEME_STORAGE_KEY) === "dark"
+        ? "dark"
+        : "light";
+    } catch (error) {
+      return "light";
+    }
+  }
+
+  function storeTheme(theme) {
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (error) {
+      // Storage can be unavailable in privacy modes. The live toggle still works.
+    }
+  }
+
+  function notifyThemeChange() {
+    var event;
+    if (typeof window.CustomEvent === "function") {
+      event = new CustomEvent("moldavite:themechange");
+    } else {
+      event = document.createEvent("Event");
+      event.initEvent("moldavite:themechange", false, false);
+    }
+    document.dispatchEvent(event);
+  }
+
+  function applyTheme(theme, notify) {
+    var dark = theme === "dark";
+    activeTheme = dark ? "dark" : "light";
+
+    if (dark) document.documentElement.setAttribute("data-theme", "dark");
+    else document.documentElement.removeAttribute("data-theme");
+
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      button.setAttribute("aria-pressed", dark ? "true" : "false");
+      button.setAttribute(
+        "aria-label",
+        dark ? "Switch to light" : "Switch to dark",
+      );
+    });
+
+    if (notify) notifyThemeChange();
+  }
+
+  function setupTheme() {
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var nextTheme = activeTheme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme, true);
+        storeTheme(nextTheme);
+      });
+    });
+
+    window.addEventListener("storage", function (event) {
+      if (event.key !== THEME_STORAGE_KEY) return;
+      applyTheme(event.newValue === "dark" ? "dark" : "light", true);
+    });
+  }
+
   function setupNavigation() {
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".nav-links");
@@ -131,6 +198,7 @@
     });
   }
 
+  setupTheme();
   setupNavigation();
   setupReveals();
   setupCopyButtons();
