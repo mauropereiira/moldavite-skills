@@ -30,10 +30,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 22, not 20: html-validate 11 declares engines ^22.17 || >= 24 and calls
+      # fs.globSync, which Node 20 does not have. check-site failed on every run
+      # from 2026-08-15 until this change.
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install deps
