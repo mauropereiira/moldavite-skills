@@ -50,11 +50,12 @@ Without `--forge`, each request uses Moldavite's current active Forge. With `--f
 
 `write_note` replaces the entire raw file; it is not a patch operation.
 
-1. Call `read_note` immediately before writing.
+1. Call `read_note` immediately before writing and keep its `contentHash`.
 2. Preserve frontmatter, unrelated sections, and formatting.
 3. Apply the smallest requested change in memory.
-4. Call `write_note` with the full resulting Markdown.
-5. Do not retry blindly after an error or unexpected concurrent change.
+4. Call `write_note` with the full resulting Markdown and that `contentHash` as `baseHash`. If the file changed on disk in between, Moldavite keeps the disk version as a conflict copy and names it in `conflictCopy`. Omitting `baseHash` overwrites silently.
+5. If the response names a `conflictCopy`, tell the user. Do not delete or merge it without asking.
+6. Do not retry blindly after an error or unexpected concurrent change.
 
 ## Daily Append Workflow
 
