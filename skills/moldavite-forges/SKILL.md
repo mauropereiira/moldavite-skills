@@ -74,4 +74,4 @@ Moldavite's backlinks and graph are derived from `[[wiki links]]`; no graph file
 
 ## External Change Behavior
 
-Moldavite notices filesystem changes and refreshes its note list, but it does not replace an already-open editor body. Direct writes can also leave backlinks or semantic search stale until the Forge is reopened, rescanned, or reindexed. Warn the user when immediate app visibility matters.
+Moldavite notices filesystem changes and refreshes its note list. An open note with no unsaved edits reloads from disk in place, so a note an agent writes to repeatedly stays visible. A note with unsaved edits keeps the editor body and shows a banner where the user picks a version; the other is preserved as a conflict copy. Direct writes can also leave backlinks or semantic search stale until the Forge is reopened, rescanned, or reindexed. Warn the user when immediate app visibility matters.

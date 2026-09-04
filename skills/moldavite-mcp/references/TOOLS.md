@@ -23,7 +23,7 @@ Arguments:
 { "path": "notes/example.md" }
 ```
 
-Returns complete raw Markdown, including frontmatter. Refuses missing or locked notes.
+Returns complete raw Markdown, including frontmatter, plus a `contentHash` of the file as read. Keep that hash for `write_note`'s `baseHash`. Refuses missing or locked notes.
 
 ### `list_notes`
 
@@ -80,11 +80,12 @@ Arguments:
 ```json
 {
   "path": "notes/example.md",
-  "content": "# Complete replacement\n"
+  "content": "# Complete replacement\n",
+  "baseHash": "<contentHash returned by read_note>"
 }
 ```
 
-Replaces one existing unlocked note with complete raw Markdown. It refuses missing notes and is not concurrency-aware beyond normal filesystem safety.
+Replaces one existing unlocked note with complete raw Markdown. It refuses missing notes. Pass the `contentHash` that `read_note` returned as `baseHash`: when the file changed on disk since that read, Moldavite preserves the disk version as a sibling conflict copy before writing and returns its filename in `conflictCopy` (`null` after a clean write). Without `baseHash` the write overwrites whatever is on disk.
 
 ## Locked notes
 
