@@ -48,6 +48,9 @@ Daily and weekly notes stay flat. Nest only under `notes/`.
 ## Safety Rules
 
 - Never read or edit `*.md.locked` files. Their plaintext is intentionally unavailable.
+- A locked note occupies both spellings of its name. `secret.md.locked` means the address `secret.md` is
+  taken, even though no such file exists. Never create, move or rename a note onto it: the pair leaves the
+  note listed twice and unlockable.
 - Never edit `.trash/`, `.plugins/`, `.index/`, hidden files, or temporary siblings.
 - Never follow symlinks into or within a Forge.
 - Reject absolute note paths, `..`, backslashes, NUL bytes, and hidden path components.
