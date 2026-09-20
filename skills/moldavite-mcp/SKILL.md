@@ -63,6 +63,10 @@ Use `append_to_daily_note` for journal entries and logs. Omit `date` for Moldavi
 
 Appending is not deduplicated. Read the daily note first when repeated content would be harmful.
 
+`append_to_daily_note` has no conflict guard. `write_note` can be given `baseHash`; this tool has no
+equivalent, and a full-file write landing between its read and its write is lost. When the daily note
+may be edited concurrently, read it, then use `write_note` with `baseHash` instead of appending.
+
 ## Path Contract
 
 Valid note paths:
@@ -80,7 +84,7 @@ See [TOOLS.md](references/TOOLS.md) for exact arguments and return behavior.
 
 ## Write Gate
 
-Read tools are available by default. `create_note`, `write_note`, and `append_to_daily_note` appear only when the user enables MCP writes in **Settings > AI & Agents**. Write permission is global and can be revoked while a server is running.
+Read tools are available by default. `create_note`, `write_note`, and `append_to_daily_note` appear only when the user enables MCP writes in **Settings > AI & Agents**. Write permission is global and can be revoked while a server is running. Revoking blocks the next write call immediately, but the server sends no list-changed notification, so a cached tool list can still show the write tools. Treat a refusal as authoritative over the list.
 
 If a write tool is absent or denied, explain the setting needed. Do not bypass the gate with direct files unless the user explicitly requests a filesystem fallback.
 
