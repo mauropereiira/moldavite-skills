@@ -28,7 +28,7 @@ A Forge is a user-owned directory of Markdown notes. Prefer Moldavite MCP tools 
 |-- weekly/                # YYYY-Www.md
 |-- notes/                 # standalone notes; nested folders allowed
 |-- templates/             # Moldavite-managed JSON templates
-|-- images/                # note attachments
+|-- images/                # note attachments, linked as images/<file>
 |-- .trash/                # app-managed
 |-- .plugins/              # app-managed
 `-- .index/                # derived semantic index
@@ -51,6 +51,8 @@ Daily and weekly notes stay flat. Nest only under `notes/`.
 - A locked note occupies both spellings of its name. `secret.md.locked` means the address `secret.md` is
   taken, even though no such file exists. Never create, move or rename a note onto it: the pair leaves the
   note listed twice and unlockable.
+- A locked note in `.trash/` stays encrypted and can only be restored to the path it was locked at. A note
+  created at that path meanwhile blocks the restore until the user renames it.
 - Never edit `.trash/`, `.plugins/`, `.index/`, hidden files, or temporary siblings.
 - Never follow symlinks into or within a Forge.
 - Reject absolute note paths, `..`, backslashes, NUL bytes, and hidden path components.
@@ -64,8 +66,8 @@ Daily and weekly notes stay flat. Nest only under `notes/`.
 1. Confirm Forge and category.
 2. Read `AGENTS.md` and the target note if it exists.
 3. Search for a semantically matching note before creating a near-duplicate.
-4. Choose a lowercase hyphenated `.md` filename unless Forge rules say otherwise.
-5. Write a first `# Title` heading and use `[[wiki links]]` to connect related notes.
+4. Choose a lowercase hyphenated `.md` filename unless Forge rules say otherwise. Never put `[` or `]` in a new note's name.
+5. Write a first `# Title` heading and use `[[wiki links]]` to connect related notes. Link images as `images/<file>` from the Forge root, whatever folder the note is in.
 6. For replacement, preserve complete frontmatter and all content outside the requested change.
 7. If scripting writes, use a same-directory temporary file, flush it, apply restrictive permissions, then rename it atomically.
 

@@ -47,7 +47,7 @@ Moldavite has no dedicated MCP weekly-append tool.
 
 ## App Lifecycle
 
-Moldavite's GUI can display a blank daily or weekly note before a file exists. It creates the file after content is entered and removes an emptied daily or weekly file. MCP create and append operations create files immediately.
+Moldavite's GUI can display a blank daily or weekly note before a file exists. It creates the file after content is entered, and deletes a daily or weekly file only when the user empties it in the editor; an image or a table counts as content. Moldavite 2.8 and later leave an empty file alone when it is only opened. MCP create and append operations create files immediately. In 2.8 and later, a `[[YYYY-MM-DD]]` link opens that day's daily note.
 
 ## Templates
 

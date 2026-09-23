@@ -54,6 +54,7 @@ Targets are basename-oriented. `[[Projects/Plan]]` is not a reliable way to addr
 | Wiki embed | Not supported | `![[Target]]` |
 | Inline tags | ASCII letters, numbers, hyphens | Broader syntax and nesting |
 | Frontmatter behavior | Preserves YAML; consumes `color` | Properties system |
+| Tables | GFM pipe tables, text-only cells (2.8 and later) | GFM pipe tables |
 | Note lookup | Basename-oriented | Path-aware resolution |
 
 When converting Obsidian Markdown manually, reverse alias order and remove heading or block suffixes from internal targets. Moldavite's built-in Obsidian importer performs these conversions automatically.

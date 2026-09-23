@@ -819,8 +819,8 @@
                 </li>
               </ul>
               <p class="permission-note">
-                Switching writes off removes these tools from the list during
-                the session.
+                Switching writes off blocks the next write call at once. A
+                client's tool list catches up when it next asks for it.
               </p>
             </article>
           </div>
@@ -831,7 +831,7 @@
             </span>
             <div>
               <p class="section-kicker">Locked notes</p>
-              <h3>Locked notes are excluded from all seven tools.</h3>
+              <h3>No tool returns a locked note's contents.</h3>
             </div>
           </div>
         </div>
@@ -902,7 +902,7 @@
       </div>
 
       <div class="footer-base shell">
-        <span>Built for local Markdown files on macOS and Windows.</span>
+        <span>Built for local Markdown files on desktop and iOS.</span>
         <a
           href="https://github.com/mauropereiira/moldavite-skills/blob/main/LICENSE"
           >MIT License</a

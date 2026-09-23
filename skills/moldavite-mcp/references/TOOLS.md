@@ -45,7 +45,7 @@ Arguments:
 
 Returns source note paths, titles, and context for wiki links pointing to the target. Target must exist and be unlocked.
 
-On Moldavite 1.7, `[[Display|target]]` backlinks are found correctly, but their `context` field may be empty. Read the source note when aliased-link context matters.
+Through Moldavite 2.8, `[[Display|target]]` backlinks are found correctly, but their `context` field may be empty. Read the source note when aliased-link context matters.
 
 ### `create_note`
 
@@ -58,7 +58,7 @@ Arguments:
 }
 ```
 
-Creates only. It refuses existing paths and locked counterparts and creates safe parent folders below `notes/`.
+Creates only. It refuses existing paths, locked counterparts, and a file name containing `[` or `]`, and creates safe parent folders below `notes/`.
 
 ### `append_to_daily_note`
 
