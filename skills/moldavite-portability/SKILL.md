@@ -21,6 +21,7 @@ Use Moldavite's app UI for archive, migration, and export operations. MCP does n
 | Add files without overwriting existing paths | Import with Merge |
 | Restore archive contents as primary notes | Import with Replace |
 | Share selected notes | Markdown, plaintext, or PDF export |
+| Send one note from iPhone or iPad | Share → Share note… (system share sheet, Markdown file) |
 | Move app preferences only | Settings JSON export/import |
 | Move from Obsidian | Built-in Obsidian importer |
 
@@ -53,6 +54,7 @@ The importer:
 - converts Obsidian `[[target|Display]]` aliases to Moldavite `[[Display|target]]`;
 - removes heading and block suffixes from wiki-link targets;
 - copies referenced local images into `images/` with collision-safe names;
+- turns `[` and `]` in note names into parentheses, since Moldavite note names cannot hold them;
 - normalizes supported daily-note filenames;
 - skips hidden files, `.obsidian`, `.trash`, symlinks, `.canvas`, and unreferenced attachments;
 - reports unresolved embeds and skipped Canvas files.

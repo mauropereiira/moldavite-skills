@@ -17,8 +17,8 @@
 ---
 
 Agent Skills for [Moldavite](https://github.com/mauropereiira/Moldavite), a notes
-app for macOS and Windows that keeps everything as plain Markdown in a folder
-you own.
+app for macOS, Windows, Linux, iPhone and iPad that keeps everything as plain
+Markdown in a folder you own.
 
 Moldavite's MCP server gives an agent the note tools. These skills give it the
 context to use them well: the Markdown dialect, the Forge layout, how daily and
@@ -115,9 +115,9 @@ OpenCode, in `~/.config/opencode/opencode.json`:
 Restart the client after changing MCP configuration.
 
 Moldavite's four read tools are on by default. The three write tools stay off
-until you turn them on in **Settings → AI & Agents**, and switching them back off
-removes them from the tool list mid-session. Locked notes are excluded from all
-seven.
+until you turn them on in **Settings → AI & Agents**. Switching them back off
+blocks the next write call at once; a client's tool list catches up when it next
+asks for it. No tool returns a locked note's contents.
 
 ## Development
 
