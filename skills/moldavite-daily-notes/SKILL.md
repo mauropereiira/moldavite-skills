@@ -49,6 +49,8 @@ Moldavite has no dedicated MCP weekly-append tool.
 
 Moldavite's GUI can display a blank daily or weekly note before a file exists. It creates the file after content is entered, and deletes a daily or weekly file only when the user empties it in the editor; an image or a table counts as content. Moldavite 2.8 and later leave an empty file alone when it is only opened. MCP create and append operations create files immediately. In 2.8 and later, a `[[YYYY-MM-DD]]` link opens that day's daily note.
 
+Weekly filenames have always used ISO weeks, but before 2.9 the calendar showed week numbers one week behind, and clicking a week opened the note for the week before it. A weekly note written from the calendar then may describe the week after its filename. Check the dates in its content before treating it as that week's record.
+
 ## Templates
 
 Moldavite includes `meeting-notes`, `daily-log`, and `project-plan` templates. Custom templates are managed in Moldavite and stored as JSON under the Forge's `templates/` directory.

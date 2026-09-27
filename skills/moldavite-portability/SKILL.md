@@ -38,11 +38,13 @@ Forge archives include `daily/`, `weekly/`, `notes/`, `templates/`, and `images/
 
 ## Merge vs Replace
 
-- **Merge** skips destination files that already exist. It is safer for combining content but does not reconcile two versions of the same path.
+- **Merge** skips destination files that already exist. It is safer for combining content but does not reconcile two versions of the same path. In 2.9 and later it also skips a note whose name a locked note holds, so it never puts `Foo.md` beside `Foo.md.locked`.
 - **Replace** clears destination daily, weekly, note, and image content before extraction. Export a backup first and obtain explicit user confirmation.
 - Templates are handled differently from note directories during replacement; review imported templates after restore.
 
 Do not present Replace as an undoable preview. Treat it as destructive even when a separate backup exists.
+
+Before 2.9, a backup holding a note name with a character such as `:` or `?` could not be restored at all. 2.9 and later restore those names as they were.
 
 ## Obsidian Migration
 
