@@ -15,7 +15,7 @@ MCP accepts note paths beginning with `daily/`, `weekly/`, or `notes/` and endin
 
 Treat these paths as implementation data rather than agent-editable notes:
 
-- `.trash/`: deleted notes and retention metadata; a trashed locked note stays `.md.locked`
+- `.trash/`: deleted notes and retention metadata; a trashed locked note stays `.md.locked`. In 2.9 and later an unreadable `metadata.json` is set aside as `metadata.json.corrupt-<timestamp>` rather than overwritten; leave it for the user
 - `.plugins/`: installed plugin code and manifests
 - `.index/`: derived semantic vectors
 - `templates/`: JSON maintained through Moldavite's template UI

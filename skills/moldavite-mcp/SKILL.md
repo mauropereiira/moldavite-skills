@@ -45,7 +45,7 @@ MCP supports local Forges only. While the synced iCloud Forge is active, an unpi
 1. Search or list first to avoid duplicate notes.
 2. Choose a valid Forge-relative `.md` path.
 3. Build complete Moldavite-compatible Markdown.
-4. Call `create_note` once. It refuses existing and locked paths, and a file name containing `[` or `]`.
+4. Call `create_note` once. It refuses existing and locked paths, and a file name that is not portable (see Path Contract).
 5. If creation fails because the path exists, read the existing note and ask or merge deliberately. Do not overwrite automatically.
 
 ## Replace Workflow
@@ -80,7 +80,7 @@ notes/name.md
 notes/nested/name.md
 ```
 
-Nested paths are allowed only under `notes/`. Never pass an absolute path, hidden component, traversal, symlink, backslash, or locked-note path. A new note's file name cannot contain `[` or `]`; an existing note or folder with brackets can still be read and written.
+Nested paths are allowed only under `notes/`. Never pass an absolute path, hidden component, traversal, symlink, backslash, or locked-note path. A new note's file name cannot contain `[`, `]`, `:`, `*`, `?`, `"`, `<`, `>`, `|` or control characters, be a device name such as `CON` or `NUL`, or start or end with a dot or space. An existing note or folder with such a name, for example one restored from a backup, can still be read and written.
 
 See [TOOLS.md](references/TOOLS.md) for exact arguments and return behavior.
 

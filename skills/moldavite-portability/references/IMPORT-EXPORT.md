@@ -37,7 +37,7 @@ These exports are presentation or sharing formats, not complete Forge backups.
 
 ## Settings JSON scope
 
-Settings export includes selected calendar, folder, app, theme, pinned-tab, and recent-note state. It excludes note files, custom templates, quick-switcher state, plugins and grants, semantic models and indexes, and MCP write permission.
+Settings export includes selected calendar, folder, app, theme, pinned-tab, and recent-note state. Exports made before 2.9 may lack folder state. It excludes note files, custom templates, quick-switcher state, plugins and grants, semantic models and indexes, and MCP write permission.
 
 ## Obsidian importer boundaries
 
