@@ -8,11 +8,11 @@
     "type": "git",
     "url": "git+https://github.com/mauropereiira/moldavite-skills.git"
   },
-  "homepage": "https://mauropereiira.github.io/moldavite-skills/",
+  "homepage": "https://moldavite.dev/skills",
   "scripts": {
-    "format:check": "prettier --check README.md package.json scripts/validate.mjs docs/index.html docs/styles.css docs/site.js",
+    "format:check": "prettier --check README.md package.json scripts/validate.mjs docs/index.html",
     "validate": "npm run validate:skills && npm run validate:site && npm run format:check",
-    "validate:site": "html-validate docs/index.html && node --check docs/site.js",
+    "validate:site": "html-validate docs/index.html",
     "validate:skills": "node scripts/validate.mjs"
   },
   "devDependencies": {
