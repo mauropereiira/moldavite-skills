@@ -8,10 +8,10 @@
 </p>
 
 <p align="center">
-  <a href="https://mauropereiira.github.io/moldavite-skills/">Website</a> ·
+  <a href="https://moldavite.dev/skills.html">Website</a> ·
   <a href="https://github.com/mauropereiira/Moldavite">Moldavite</a> ·
   <a href="https://github.com/mauropereiira/homebrew-moldavite">Homebrew tap</a> ·
-  <a href="https://mauropereiira.github.io/Moldavite/guide.html">User Guide</a>
+  <a href="https://moldavite.dev/guide.html">User Guide</a>
 </p>
 
 ---
