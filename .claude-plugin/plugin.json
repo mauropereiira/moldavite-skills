@@ -4,7 +4,8 @@
   "description": "Create and manage Moldavite notes using compatible Markdown, Forge conventions, daily notes, migration workflows, and the local MCP server.",
   "author": {
     "name": "Mauro Pereira",
-    "url": "https://github.com/mauropereiira"
+    "email": "mauro@moldavite.dev",
+    "url": "https://moldavite.dev"
   },
   "repository": "https://github.com/mauropereiira/moldavite-skills",
   "license": "MIT",
